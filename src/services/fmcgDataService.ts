@@ -187,7 +187,7 @@ export class FMCGDataService {
           id,
           brand_name,
           category,
-          fmcg_companies!inner(company_name)
+          fmcg_companies(company_name)
         `)
         .eq('is_client_brand', true);
 
@@ -197,7 +197,7 @@ export class FMCGDataService {
         id: item.id,
         brand_name: item.brand_name,
         category: item.category,
-        company_name: item.fmcg_companies.company_name
+        company_name: (item.fmcg_companies as any)?.company_name || 'Unknown'
       })) || [];
     } catch (error) {
       console.error('Error fetching client brands:', error);
