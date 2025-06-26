@@ -1,124 +1,66 @@
 
 import React from 'react';
-import { CascadingFilters } from '@/components/filters/CascadingFilters';
-import { ProductMixChart } from '@/components/charts/ProductMixChart';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Card } from '@/components/ui/card';
 
 const ProductMix = () => {
-  const substitutionData = [
-    { original: 'Coca-Cola', substitute: 'Pepsi', frequency: '23%', reason: 'Out of stock' },
-    { original: 'Lays', substitute: 'Pringles', frequency: '18%', reason: 'Price preference' },
-    { original: 'Palmolive', substitute: 'Pantene', frequency: '15%', reason: 'Availability' },
-    { original: 'Marlboro Red', substitute: 'Philip Morris', frequency: '12%', reason: 'Out of stock' },
-  ];
-
-  const bundleData = [
-    { combo: 'Coca-Cola + Lays', frequency: '28%', lift: '+15%' },
-    { combo: 'Cigarettes + Lighter', frequency: '45%', lift: '+22%' },
-    { combo: 'Shampoo + Conditioner', frequency: '35%', lift: '+18%' },
-    { combo: 'Energy Drink + Snack', frequency: '19%', lift: '+8%' },
-  ];
-
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">Product Mix & SKU Analysis</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-gray-900">Product Mix Analysis</h1>
       </div>
-
-      <CascadingFilters />
       
-      <ProductMixChart />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-2">Dairy Products</h3>
+          <p className="text-2xl font-bold text-blue-600">28.5%</p>
+          <p className="text-sm text-gray-600">Market share</p>
+        </Card>
+        
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-2">Snacks</h3>
+          <p className="text-2xl font-bold text-green-600">22.1%</p>
+          <p className="text-sm text-gray-600">Market share</p>
+        </Card>
+        
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-2">Beverages</h3>
+          <p className="text-2xl font-bold text-purple-600">18.7%</p>
+          <p className="text-sm text-gray-600">Market share</p>
+        </Card>
+        
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-2">Personal Care</h3>
+          <p className="text-2xl font-bold text-orange-600">15.2%</p>
+          <p className="text-sm text-gray-600">Market share</p>
+        </Card>
+      </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Substitution Patterns</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Original Brand</TableHead>
-                  <TableHead>Substitute</TableHead>
-                  <TableHead>Frequency</TableHead>
-                  <TableHead>Reason</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {substitutionData.map((item, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">{item.original}</TableCell>
-                    <TableCell>{item.substitute}</TableCell>
-                    <TableCell>{item.frequency}</TableCell>
-                    <TableCell>{item.reason}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Product Bundles & Cross-sell</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Product Combo</TableHead>
-                  <TableHead>Co-purchase Rate</TableHead>
-                  <TableHead>Sales Lift</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {bundleData.map((item, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">{item.combo}</TableCell>
-                    <TableCell>{item.frequency}</TableCell>
-                    <TableCell className="text-green-600 font-semibold">{item.lift}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>SKU Performance Insights</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-              <h4 className="font-semibold text-green-900">Top Performer</h4>
-              <p className="text-sm text-green-700 mt-2">
-                <strong>Coca-Cola 500ml</strong><br />
-                ₱156K sales, 890 transactions<br />
-                Consistent demand across all locations
-              </p>
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-4">Top Brands</h3>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Alaska</span>
+              <span className="text-sm text-blue-600">24.5%</span>
             </div>
-            <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-              <h4 className="font-semibold text-blue-900">Growth Opportunity</h4>
-              <p className="text-sm text-blue-700 mt-2">
-                <strong>Premium Haircare</strong><br />
-                High margin, low volume<br />
-                Target urban locations for growth
-              </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Oishi</span>
+              <span className="text-sm text-green-600">18.2%</span>
             </div>
-            <div className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-              <h4 className="font-semibold text-yellow-900">Bundle Recommendation</h4>
-              <p className="text-sm text-yellow-700 mt-2">
-                <strong>Beverages + Snacks</strong><br />
-                28% co-purchase rate<br />
-                +15% sales lift potential
-              </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Del Monte</span>
+              <span className="text-sm text-purple-600">16.8%</span>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </Card>
+        
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-4">Category Performance</h3>
+          <div className="h-48 flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg">
+            <p className="text-gray-500">Product mix chart will render here</p>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 };
