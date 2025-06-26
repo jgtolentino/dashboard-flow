@@ -3,7 +3,7 @@ import React from 'react';
 import { CascadingFilters } from '@/components/filters/CascadingFilters';
 import { TransactionTrendsChart } from '@/components/charts/TransactionTrendsChart';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BoxPlot } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const TransactionTrends = () => {
   const valueDistributionData = [
